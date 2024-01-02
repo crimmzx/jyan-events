@@ -13,6 +13,7 @@ export interface HistoricalEvent {
   description: string;
   position: [number, number];
   category: string;
+  image: string;
 }
 
 const defaultPosition: [number, number] = [51.505, -0.09];

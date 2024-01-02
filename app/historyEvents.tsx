@@ -1,643 +1,974 @@
-import { HistoricalEvent } from "./Components/MapsApp";
+import { Event } from "./Components/MapsApp";
 
-const eventsData: HistoricalEvent[] = [
-  // War
+const eventsData: Event[] = [
   {
     id: 1,
-    title: "Normandy Landings (D-Day)",
-    description:
-      "Allied forces landed on the beaches of Normandy, France on June 6, 1944, marking a pivotal turn in World War II.",
-    position: [49.4144, -0.8322],
-    category: "War",
+    title: "152 Alexander St, Princeton, NJ 08540",
+    description: "💑 A charming spot in Princeton, New Jersey - perfect for a romantic stroll.",
+    position: [40.349274, -74.653627],
+    category: "Dates",
   },
-  // Art
   {
     id: 2,
-    title: "Completion of the Sistine Chapel Ceiling",
-    description:
-      "Michelangelo completed the ceiling of the Sistine Chapel in Vatican City in 1512.",
-    position: [41.9029, 12.4545],
-    category: "Art",
+    title: "GU, 579 Broadway, New York, NY 10012",
+    description: "🛍️ Explore the trendy GU store in the heart of New York, NY - a shopping date awaits! 🛒",
+    position: [40.724130, -73.997205],
+    category: "Dates",
   },
-  // Science
   {
     id: 3,
-    title: "Invention of the Telephone",
-    description:
-      "Alexander Graham Bell patented the telephone in the United States in 1876.",
-    position: [38.8977, -77.0365],
-    category: "Science",
+    title: "Levain Bakery – Upper East Side, NYC, 3rd Avenue, New York, NY",
+    description: "🍪 Indulge in sweet moments at Levain Bakery in Upper East Side, New York, NY. 🍰",
+    position: [40.773503, -73.960212],
+    category: "Dates",
   },
-  // Politics
   {
     id: 4,
-    title: "India Gains Independence",
-    description:
-      "India gained independence from British rule on August 15, 1947.",
-    position: [28.6139, 77.209],
-    category: "Politics",
+    title: "UNIQLO Soho Store, 546 Broadway, New York, NY 10012",
+    description: "👗 Fashion-forward date at UNIQLO Soho store in New York, NY. Find the perfect outfit! 👔",
+    position: [40.725697, -73.998438],
+    category: "Dates",
   },
-  // Religion
   {
     id: 5,
-    title: "First Council of Nicaea",
-    description:
-      "The first ecumenical council of the Christian church was held in Nicaea (now Iznik, Turkey) in 325 AD.",
-    position: [40.4286, 29.7215],
-    category: "Religion",
+    title: "MUJI SOHO, 455 Broadway, New York, NY 10013",
+    description: "🎨 Explore the minimalist charm of MUJI SOHO in New York, NY - a date for the creative souls! 🖌️",
+    position: [40.720131, -74.000279],
+    category: "Dates",
   },
-  // Sports
   {
     id: 6,
-    title: "First FIFA World Cup",
-    description:
-      "The first FIFA World Cup was held in Uruguay, with the host nation winning in 1930.",
-    position: [-34.9011, -56.1645],
-    category: "Sports",
+    title: "North Dumpling, 27A Essex St, New York, NY 10002",
+    description: "🌃 A romantic night out in the vibrant city of New York, NY - North Dumpling is the place to be! 🌙",
+    position: [40.715167, -73.991241],
+    category: "Dates",
   },
-  // Other
   {
     id: 7,
-    title: "Construction of the Sydney Opera House",
-    description: "The Sydney Opera House was opened in 1973 in Australia.",
-    position: [-33.8568, 151.2153],
-    category: "Other",
+    title: "558 Broadway, New York, NY 10012",
+    description: "🌆 Exciting date night at 558 Broadway in New York, NY - where the city lights meet love! 💖",
+    position: [40.724415, -73.999232],
+    category: "Dates",
   },
-  // Adding additional events to cover more continents and countries
-  // War
   {
     id: 8,
-    title: "Rwandan Genocide",
-    description:
-      "The Rwandan genocide was a mass slaughter of Tutsi in Rwanda during a 100-day period in 1994.",
-    position: [-1.9403, 29.8739],
-    category: "War",
+    title: "53 Bayard St., Chinatown",
+    description: "🏮 Wander through the enchanting streets of Chinatown, New York, NY - a date filled with culture and charm! 🥢",
+    position: [40.715090, -73.996156],
+    category: "Dates",
   },
-  // Science
   {
     id: 9,
-    title: "Discovery of Oil in Saudi Arabia",
-    description:
-      "Commercial quantities of oil were discovered in Dhahran, Saudi Arabia in 1938.",
-    position: [26.2361, 50.0393],
-    category: "Science",
+    title: "Pier 35, FDR Dr, New York, NY 10002",
+    description: "🌊 A romantic waterfront date on FDR Drive in New York, NY - Pier 35 awaits with breathtaking views! 🌅",
+    position: [40.710181, -73.973605],
+    category: "Dates",
   },
-  // Politics
   {
     id: 10,
-    title: "Brazilian Proclamation of Independence",
-    description:
-      "Brazil declared its independence from Portugal on September 7, 1822.",
-    position: [-15.7934, -47.8822],
-    category: "Politics",
+    title: "Pier 35, FDR Dr, New York, NY 10002",
+    description: "🌊 Another romantic waterfront date on FDR Drive in New York, NY - Pier 35 offers love by the water! 💑",
+    position: [40.710181, -73.973605],
+    category: "Dates",
   },
-  // Continuing the eventsData array with IDs starting from 11
   {
     id: 11,
-    title: "Fall of the Berlin Wall",
-    description:
-      "The Berlin Wall, a symbol of the Cold War, was torn down on November 9, 1989, leading to German reunification.",
-    position: [52.5163, 13.3777],
-    category: "Politics",
+    title: "Bryant Park, New York, NY 10018",
+    description: "🌳 Escape to the beautiful Bryant Park in New York, NY - a serene and romantic spot in the heart of the city! 🍃",
+    position: [40.753596, -73.984527],
+    category: "Dates",
   },
   {
     id: 12,
-    title: "Signing of the Magna Carta",
-    description:
-      "King John of England signed the Magna Carta, a document limiting his power and establishing the principle that everyone is subject to the law, on June 15, 1215.",
-    position: [51.1797, -0.4439],
-    category: "Politics",
+    title: "Photofolio: 11 W 32nd St, New York, NY 10001",
+    description: "📸 Capture romantic memories at Photofolio on West 32nd St, New York, NY - a date filled with snapshots of love! ❤️",
+    position: [40.747032, -73.987377],
+    category: "Dates",
   },
   {
     id: 13,
-    title: "Hiroshima and Nagasaki Bombings",
-    description:
-      "The United States dropped atomic bombs on the Japanese cities of Hiroshima and Nagasaki in August 1945, leading to Japan's surrender in World War II.",
-    position: [34.3853, 132.4553], // Hiroshima
-    category: "War",
+    title: "Bryant Park, New York, NY 10018",
+    description: "🌳 Another romantic rendezvous at Bryant Park in New York, NY - where love blooms in the heart of the city! 💕",
+    position: [40.753596, -73.984527],
+    category: "Dates",
   },
   {
     id: 14,
-    title: "Discovery of Insulin",
-    description:
-      "Insulin was discovered by Frederick Banting and Charles Best in Toronto, Canada, in 1921, revolutionizing the treatment of diabetes.",
-    position: [43.661, -79.3957],
-    category: "Science",
+    title: "152 Alexander St, Princeton, NJ 08540",
+    description: "💑 Charming spot in Princeton, NJ - perfect for a romantic stroll.",
+    position: [40.349274, -74.653627],
+    category: "Dates",
   },
   {
     id: 15,
-    title: "Spanish Conquest of the Aztec Empire",
-    description:
-      "Hernán Cortés and his men conquered the Aztec Empire in 1521, marking a significant event in the Spanish colonization of the Americas.",
-    position: [19.4326, -99.1332],
-    category: "War",
+    title: "Princeton Junction",
+    description: "🚉 Quaint location near Princeton Junction - a charming escape for a romantic getaway! 🌟",
+    position: [40.3100, -74.5917],
+    category: "Dates",
   },
   {
     id: 16,
-    title: "Founding of the United Nations",
-    description:
-      "The United Nations was founded on October 24, 1945, after World War II, to prevent future conflicts and foster international cooperation.",
-    position: [40.7489, -73.968],
-    category: "Politics",
+    title: "3601 Walnut St, Philadelphia, PA 19104",
+    description: "🌆 Explore the vibrant streets of Philadelphia, PA - a perfect setting for a romantic adventure! 💖",
+    position: [39.9530, -75.1893],
+    category: "Dates",
   },
   {
     id: 17,
-    title: "First Heart Transplant",
-    description:
-      "The first human-to-human heart transplant was performed by Dr. Christiaan Barnard in Cape Town, South Africa, on December 3, 1967.",
-    position: [-33.9249, 18.4241],
-    category: "Science",
+    title: "Penn/City",
+    description: "🏙️ City vibes at Penn/City in Philadelphia, PA - where love meets the urban landscape! 🌃",
+    position: [39.9549, -75.1817],
+    category: "Dates",
   },
   {
     id: 18,
-    title: "French Revolution",
-    description:
-      "The French Revolution, a period of social and political upheaval in France, began with the storming of the Bastille on July 14, 1789.",
-    position: [48.8566, 2.3522],
-    category: "Politics",
+    title: "1400 John F Kennedy Blvd, Philadelphia, PA 19107",
+    description: "🏰 Romantic moments await at 1400 John F Kennedy Blvd, Philadelphia, PA - a love story in the heart of the city! ❤️",
+    position: [39.9546, -75.1651],
+    category: "Dates",
   },
   {
     id: 19,
-    title: "Battle of Adwa",
-    description:
-      "Ethiopian forces defeated Italian troops at the Battle of Adwa on March 1, 1896, ensuring Ethiopia's independence.",
-    position: [14.04, 38.2844],
-    category: "War",
+    title: "1001 Market St APT 3010, Philadelphia, PA 19107",
+    description: "🌇 Elevate your date night at 1001 Market St APT 3010, Philadelphia, PA - a cozy nest in the city lights! 🌟",
+    position: [39.9526, -75.1586],
+    category: "Dates",
   },
   {
     id: 20,
-    title: "Egyptian Revolution of 2011",
-    description:
-      "The Egyptian Revolution of 2011, part of the Arab Spring, began on January 25, 2011, leading to the ousting of President Hosni Mubarak.",
-    position: [30.0444, 31.2357],
-    category: "Politics",
+    title: "Terakawa Ramen, 204 N 9th St, Philadelphia, PA 19107",
+    description: "🍜 Savor the flavors of love at Terakawa Ramen in Philadelphia, PA - a noodle date to remember! 🥢",
+    position: [39.9584, -75.1537],
+    category: "Dates",
   },
   {
     id: 21,
-    title: "Discovery of the Rosetta Stone",
-    description:
-      "The Rosetta Stone, key to deciphering ancient Egyptian hieroglyphs, was discovered in Egypt in 1799.",
-    position: [31.1981, 29.9192],
-    category: "Other",
+    title: "780 S 2nd St, Philadelphia, PA 19147",
+    description: "🌆 Romantic vibes at 780 S 2nd St, Philadelphia, PA - where the streets whisper tales of love! 💕",
+    position: [39.9414, -75.1456],
+    category: "Dates",
   },
   {
     id: 22,
-    title: "Eruption of Krakatoa",
-    description:
-      "The catastrophic eruption of the Krakatoa volcano occurred in Indonesia on August 27, 1883.",
-    position: [-6.1025, 105.4233],
-    category: "Other",
+    title: "1326 Spruce St, Philadelphia, PA 19107",
+    description: "🏡 Discover hidden romance at 1326 Spruce St, Philadelphia, PA - a charming address for lovebirds! 🌹",
+    position: [39.9472, -75.1616],
+    category: "Dates",
   },
   {
     id: 23,
-    title: "Construction of the Great Wall",
-    description:
-      "Construction of the Great Wall of China as it is known today began around the 7th century BC to protect against invasions.",
-    position: [40.4319, 116.5704],
-    category: "Other",
+    title: "Lanzhou hand-pulled noodles, 935 Arch St, Philadelphia, PA 19107",
+    description: "🍜 Dive into a bowl of love at Lanzhou Hand-Pulled Noodles in Philadelphia, PA - a noodle date for two! 🥢",
+    position: [39.9536, -75.1572],
+    category: "Dates",
   },
   {
     id: 24,
-    title: "The Great Irish Famine",
-    description:
-      "The Great Irish Famine, caused by potato blight, resulted in the deaths of approximately one million people from 1845 to 1849.",
-    position: [53.3498, -6.2603],
-    category: "Other",
+    title: "Momofuku Noodle Bar, 171 1st Avenue, New York, NY 10003",
+    description: "🍜 Dive into the world of savory noodles at Momofuku Noodle Bar in New York, NY - a haven for noodle lovers! 🥢",
+    position: [40.7294, -73.9841],
+    category: "Food",
   },
   {
     id: 25,
-    title: "Invention of the Printing Press",
-    description:
-      "Johannes Gutenberg invented the printing press in Mainz, Germany, around 1440, revolutionizing the spread of information.",
-    position: [49.9929, 8.2473],
-    category: "Science",
+    title: "Joe's Shanghai, 9 Pell St, New York, NY 10013",
+    description: "🥟 Savor the taste of authentic soup dumplings at Joe's Shanghai in New York, NY - a dumpling paradise! 🍲",
+    position: [40.7149, -73.9977],
+    category: "Food",
   },
   {
     id: 26,
-    title: "Battle of Isandlwana",
-    description:
-      "The Battle of Isandlwana on January 22, 1879, was a significant defeat for the British Empire at the hands of Zulu forces.",
-    position: [-28.3536, 30.6537],
-    category: "War",
+    title: "Xi'an Famous Foods, 81 St. Marks Pl, New York, NY 10003",
+    description: "🌶️ Spice up your date with flavors from Xi'an Famous Foods in New York, NY - a journey through bold and delicious cuisine! 🍜",
+    position: [40.7291, -73.9863],
+    category: "Food",
   },
   {
     id: 27,
-    title: "First Olympic Games of the Modern Era",
-    description:
-      "The first Olympic Games of the modern era were held in Athens, Greece, in 1896.",
-    position: [37.9838, 23.7275],
-    category: "Sports",
+    title: "Han Dynasty, 90 3rd Ave, New York, NY 10003",
+    description: "🌶️ Satisfy your spice cravings at Han Dynasty in New York, NY - where bold flavors meet a cozy atmosphere! 🍛",
+    position: [40.7317, -73.9886],
+    category: "Food",
   },
   {
     id: 28,
-    title: "Completion of the Transcontinental Railroad",
-    description:
-      "The Transcontinental Railroad in the United States was completed on May 10, 1869, connecting the east and west coasts by rail for the first time.",
-    position: [41.0192, -112.1231],
-    category: "Other",
+    title: "Dim Sum Garden, 1020 Race St, Philadelphia, PA 19107",
+    description: "🥢 Discover the art of dim sum at Dim Sum Garden in Philadelphia, PA - a feast of flavors and dumplings await! 🍤",
+    position: [39.9524, -75.1598],
+    category: "Food",
   },
   {
     id: 29,
-    title: "Treaty of Waitangi",
-    description:
-      "The Treaty of Waitangi was signed on February 6, 1840, marking the beginning of British colonization of New Zealand.",
-    position: [-35.2623, 174.122],
-    category: "Politics",
+    title: "Tuna Bar, 205 Race St, Philadelphia, PA 19106",
+    description: "🍣 Indulge in a seafood delight at Tuna Bar in Philadelphia, PA - where fresh sushi meets an elegant dining experience! 🌊",
+    position: [39.9532, -75.1431],
+    category: "Food",
   },
   {
     id: 30,
-    title: "Renaissance",
-    description:
-      "The Renaissance was a period of intense artistic and cultural development that began in Italy in the 14th century and spread throughout Europe.",
-    position: [43.7696, 11.2558],
-    category: "Art",
+    title: "Pho Xe Lua, 907 Race St, Philadelphia, PA 19107",
+    description: "🍜 Warm your soul with a bowl of pho at Pho Xe Lua in Philadelphia, PA - a Vietnamese delight in the heart of the city! 🍲",
+    position: [39.9529, -75.1553],
+    category: "Food",
   },
-  // Continuing the eventsData array with IDs starting from 31
   {
     id: 31,
-    title: "Nelson Mandela's Release from Prison",
-    description:
-      "Nelson Mandela was released on February 11, 1990, after 27 years in prison, marking a significant step towards the end of apartheid in South Africa.",
-    position: [-33.9249, 18.4241], // Cape Town, South Africa
-    category: "Politics",
+    title: "Sakura Mandarin, 1038 Race St, Philadelphia, PA 19107",
+    description: "🌸 Embark on a culinary journey at Sakura Mandarin in Philadelphia, PA - where the art of Chinese cuisine meets a romantic setting! 🥢",
+    position: [39.9538, -75.1563],
+    category: "Food",
   },
   {
     id: 32,
-    title: "Battle of Al-Qadisiyyah",
-    description:
-      "The Battle of Al-Qadisiyyah in 636 CE saw the Muslim Arab army defeat the Sassanid Persian forces, leading to the Islamic conquest of Persia.",
-    position: [32.0575, 47.2635], // Near modern-day Iraq, historically significant for North African Arab history
-    category: "War",
+    title: "Central Park, New York, NY 10022",
+    description: "🌳 Escape to the enchanting Central Park in New York, NY - a green oasis with endless entertainment possibilities! 🚴‍♂️🎭",
+    position: [40.7851, -73.9683],
+    category: "Entertainment",
   },
   {
     id: 33,
-    title: "Great Zimbabwe",
-    description:
-      "Great Zimbabwe was built between the 11th and 15th centuries and was the capital of the Kingdom of Zimbabwe during the country’s Late Iron Age.",
-    position: [-20.2686, 30.9309], // Zimbabwe
-    category: "Other",
+    title: "Broadway Theatre District, New York, NY 10036",
+    description: "🎭 Immerse yourself in the magic of Broadway in New York, NY - where world-class performances and entertainment come to life! 🌟",
+    position: [40.7589, -73.9851],
+    category: "Entertainment",
   },
   {
     id: 34,
-    title: "Discovery of Tutankhamun's Tomb",
-    description:
-      "Howard Carter discovered the intact tomb of Pharaoh Tutankhamun in November 1922, providing immense insight into ancient Egyptian culture and history.",
-    position: [25.7402, 32.6014], // Valley of the Kings, Egypt
-    category: "Other",
+    title: "Top of the Rock Observation Deck, 30 Rockefeller Plaza, New York, NY 10112",
+    description: "🏙️ Elevate your date night at the Top of the Rock Observation Deck in New York, NY - panoramic views and romantic moments await! 🌆",
+    position: [40.7591, -73.9794],
+    category: "Entertainment",
   },
   {
     id: 35,
-    title: "Battle of Adowa",
-    description:
-      "The Battle of Adowa on March 1, 1896, saw Ethiopian forces defeat the Italian military, ensuring Ethiopia's sovereignty.",
-    position: [14.9482, 38.7749], // Adowa, Ethiopia
-    category: "War",
+    title: "The Metropolitan Museum of Art, 1000 5th Ave, New York, NY 10028",
+    description: "🎨 Explore the art world at The Met in New York, NY - a cultural date filled with creativity and inspiration! 🖼️",
+    position: [40.7794, -73.9632],
+    category: "Entertainment",
   },
   {
     id: 36,
-    title: "Suez Canal Opening",
-    description:
-      "The Suez Canal in Egypt was opened on November 17, 1869, connecting the Mediterranean Sea to the Red Sea and significantly shortening trade routes.",
-    position: [30.5852, 32.2654], // Suez Canal, Egypt
-    category: "Other",
+    title: "Philadelphia Museum of Art, 2600 Benjamin Franklin Pkwy, Philadelphia, PA 19130",
+    description: "🏛️ Dive into the world of art at the Philadelphia Museum of Art - a cultural haven in the heart of the city! 🎨",
+    position: [39.9652, -75.1806],
+    category: "Entertainment",
   },
   {
     id: 37,
-    title: "Rwandan Genocide",
-    description:
-      "The Rwandan Genocide was a mass slaughter of Tutsi in Rwanda during a 100-day period from April 7 to mid-July 1994.",
-    position: [-1.9403, 29.8739], // Rwanda
-    category: "War",
+    title: "Liberty Bell, 526 Market St, Philadelphia, PA 19106",
+    description: "🔔 Discover the historic Liberty Bell in Philadelphia, PA - a symbol of freedom and a perfect spot for a date filled with history! 🇺🇸",
+    position: [39.9496, -75.1502],
+    category: "Entertainment",
   },
   {
     id: 38,
-    title: "Mansa Musa's Pilgrimage",
-    description:
-      "Mansa Musa, emperor of Mali, made his pilgrimage to Mecca in 1324, demonstrating the wealth and grandeur of his empire.",
-    position: [12.6392, -8.0029], // Mali
-    category: "Religion",
+    title: "Spruce Street Harbor Park, 301 S Christopher Columbus Blvd, Philadelphia, PA 19106",
+    description: "⛵ Enjoy a romantic evening at Spruce Street Harbor Park in Philadelphia, PA - where lights, water, and love create the perfect ambiance! 🌌",
+    position: [39.9471, -75.1404],
+    category: "Entertainment",
   },
   {
     id: 39,
-    title: "Independence of Ghana",
-    description:
-      "Ghana became the first sub-Saharan African country to gain independence from colonial rule on March 6, 1957.",
-    position: [5.6037, -0.187], // Accra, Ghana
-    category: "Politics",
+    title: "The Franklin Institute, 222 N 20th St, Philadelphia, PA 19103",
+    description: "🔬 Embark on a journey of discovery at The Franklin Institute in Philadelphia, PA - a fun and interactive date for science enthusiasts! 🌌",
+    position: [39.9565, -75.1722],
+    category: "Entertainment",
   },
   {
     id: 40,
-    title: "Battle of Isandlwana",
-    description:
-      "On January 22, 1879, Zulu forces defeated British troops at the Battle of Isandlwana during the Anglo-Zulu War.",
-    position: [-28.3536, 30.6537], // South Africa
-    category: "War",
+    title: "Spot Dessert Bar, 13 St Marks Pl, New York, NY 10003",
+    description: "🍰 Indulge in sweet creations at Spot Dessert Bar in New York, NY - a dessert haven with Asian-inspired delights! 🍨🍵",
+    position: [40.7291, -73.9894],
+    category: "Desserts",
   },
   {
     id: 41,
-    title: "The Opening of the University of Timbuktu",
-    description:
-      "The University of Timbuktu, one of the world's oldest universities, was an intellectual and spiritual center in the 15th and 16th centuries, attracting scholars from around the Islamic world.",
-    position: [16.7666, -3.0026], // Timbuktu, Mali
-    category: "Science",
+    title: "Taiyaki NYC, 119 Baxter St, New York, NY 10013",
+    description: "🐟 Satisfy your sweet tooth with Taiyaki NYC in New York, NY - where fish-shaped cones meet delicious soft-serve and toppings! 🍦🍬",
+    position: [40.7183, -73.9991],
+    category: "Desserts",
   },
   {
     id: 42,
-    title: "Discovery of Diamonds in Kimberley",
-    description:
-      "Diamonds were discovered at Kimberley in 1867, prompting a diamond rush and the creation of De Beers Consolidated Mines Limited in 1888.",
-    position: [-28.7282, 24.7499], // Kimberley, South Africa
-    category: "Other",
+    title: "Tous Les Jours, 31 W 32nd St, New York, NY 10001",
+    description: "🥐 Experience the delight of pastries and desserts at Tous Les Jours in New York, NY - a taste of sweet elegance! 🍰🍮",
+    position: [40.7472, -73.9875],
+    category: "Desserts",
   },
   {
     id: 43,
-    title: "Construction of the Aswan High Dam",
-    description:
-      "Egypt constructed the Aswan High Dam between 1960 and 1970, which controlled floods, provided increased water storage for irrigation, and generated hydroelectricity.",
-    position: [23.97, 32.88], // Aswan, Egypt
-    category: "Other",
+    title: "Vivi Bubble Tea, 49 Bayard St, New York, NY 10013",
+    description: "🍵 Quench your thirst and sweet cravings at Vivi Bubble Tea in New York, NY - where bubble tea meets a world of flavors! 🥤🍭",
+    position: [40.7150, -73.9973],
+    category: "Desserts",
   },
   {
     id: 44,
-    title: "Fashoda Incident",
-    description:
-      "The Fashoda Incident of 1898 was the climax of imperial territorial disputes between Britain and France in Eastern Africa, almost leading to war.",
-    position: [9.8894, 32.2039], // Fashoda, South Sudan
-    category: "Politics",
+    title: "Teassert Bar, 111 N 10th St, Philadelphia, PA 19107",
+    description: "🍵 Dive into a world of tea-infused desserts at Teassert Bar in Philadelphia, PA - where flavors blossom in every bite! 🌸🍰",
+    position: [39.9569, -75.1557],
+    category: "Desserts",
   },
   {
     id: 45,
-    title: "Algerian War of Independence",
-    description:
-      "The Algerian War of Independence was fought between France and the Algerian National Liberation Front from 1954 to 1962, leading to Algeria gaining its independence.",
-    position: [36.7372, 3.0863], // Algeria
-    category: "War",
+    title: "Yagi Desserts, 1006 Arch St, Philadelphia, PA 19107",
+    description: "🍨 Sweeten your date with delightful desserts at Yagi Desserts in Philadelphia, PA - a haven for lovers of Asian sweets! 🍡🍧",
+    position: [39.9537, -75.1587],
+    category: "Desserts",
   },
   {
     id: 46,
-    title: "Lucy's Discovery",
-    description:
-      "In 1974, the discovery of the hominin 'Lucy' in Ethiopia provided critical evidence of early human evolution.",
-    position: [11.3548, 40.6822], // Hadar, Ethiopia
-    category: "Science",
+    title: "Honeygrow, 1601 Sansom St, Philadelphia, PA 19103",
+    description: "🍯 Treat yourself to honey-infused desserts at Honeygrow in Philadelphia, PA - a unique and delicious experience awaits! 🍦🍯",
+    position: [39.9527, -75.1662],
+    category: "Desserts",
   },
   {
     id: 47,
-    title: "Battle of Mogadishu",
-    description:
-      "The Battle of Mogadishu in 1993 was a confrontation between the United States forces and Somali militiamen, which was later depicted in the film 'Black Hawk Down'.",
-    position: [2.0469, 45.3182], // Mogadishu, Somalia
-    category: "War",
+    title: "Snow Garden, 1016 Race St, Philadelphia, PA 19107",
+    description: "❄️ Experience the joy of snowflake desserts at Snow Garden in Philadelphia, PA - a cool and sweet escape for your date! 🍨❄️",
+    position: [39.9532, -75.1559],
+    category: "Desserts",
   },
   {
     id: 48,
-    title: "King Shaka Zulu's Reign",
-    description:
-      "Shaka Zulu became king of the Zulu Nation in 1816 and transformed it into a formidable empire through his military innovations and leadership.",
-    position: [-28.7998, 32.0383], // Zululand, South Africa
-    category: "Politics",
+    title: "Aspen Mountain Ski Resort, Aspen, CO 81611",
+    description: "⛷️ Hit the slopes and enjoy luxury lodging at Aspen Mountain Ski Resort in Aspen, CO - a winter wonderland for skiing enthusiasts! 🏔️❄️",
+    position: [39.1878, -106.8184],
+    category: "Entertainment",
   },
   {
     id: 49,
-    title: "The Scramble for Africa",
-    description:
-      "The Scramble for Africa was the invasion, annexation, and division of African territory by European powers during the period of New Imperialism, between 1881 and 1914.",
-    position: [9.145, 40.4897], // General location for Africa
-    category: "Politics",
+    title: "Park City Mountain Resort, Park City, UT 84060",
+    description: "🏂 Experience thrilling snowboarding and cozy lodges at Park City Mountain Resort in Park City, UT - a snowy paradise for winter fun! 🏔️❄️",
+    position: [40.6461, -111.4980],
+    category: "Entertainment",
   },
   {
     id: 50,
-    title: "The Abolition of Slavery in Mauritania",
-    description:
-      "Mauritania was the last country to abolish slavery in 1981, making the practice illegal.",
-    position: [18.0735, -15.9582], // Nouakchott, Mauritania
-    category: "Politics",
+    title: "Stowe Mountain Resort, Stowe, VT 05672",
+    description: "⛷️ Ski through scenic landscapes and unwind in charming lodges at Stowe Mountain Resort in Stowe, VT - a picturesque retreat for snow lovers! 🏔️❄️",
+    position: [44.5289, -72.7963],
+    category: "Entertainment",
   },
-  // Continuing the eventsData array with IDs starting from 51
   {
     id: 51,
-    title: "Brazilian Independence",
-    description:
-      "Brazil declared its independence from Portugal on September 7, 1822, becoming the Empire of Brazil.",
-    position: [-15.7934, -47.8822], // Brasília, Brazil
-    category: "Politics",
+    title: "Jackson Hole Mountain Resort, Teton Village, WY 83025",
+    description: "🏂 Conquer the slopes and enjoy rustic lodges at Jackson Hole Mountain Resort in Teton Village, WY - an adventure-filled winter getaway! 🏔️❄️",
+    position: [43.5878, -110.8276],
+    category: "Entertainment",
   },
   {
     id: 52,
-    title: "Battle of Ayacucho",
-    description:
-      "The Battle of Ayacucho, on December 9, 1824, was a decisive military encounter during the Peruvian War of Independence. It effectively ended Spanish rule in South America.",
-    position: [-13.1588, -74.2239], // Ayacucho, Peru
-    category: "War",
+    title: "Breckenridge Ski Resort, Breckenridge, CO 80424",
+    description: "⛷️ Discover the joy of skiing and unwind in cozy lodges at Breckenridge Ski Resort in Breckenridge, CO - a snowy haven for winter sports! 🏔️❄️",
+    position: [39.4806, -106.0664],
+    category: "Entertainment",
   },
   {
     id: 53,
-    title: "Argentine War of Independence",
-    description:
-      "Starting in 1810 with the May Revolution, Argentina fought a series of battles against Spanish rule, culminating in independence in 1818.",
-    position: [-34.6037, -58.3816], // Buenos Aires, Argentina
-    category: "War",
+    title: "Lake Tahoe Ski Resorts, South Lake Tahoe, CA 96150",
+    description: "🏂 Enjoy the thrill of snowboarding and lakeside lodging at Lake Tahoe Ski Resorts in South Lake Tahoe, CA - where adventure meets serenity! 🏔️❄️",
+    position: [38.9399, -119.9772],
+    category: "Entertainment",
   },
   {
     id: 54,
-    title: "The Liberation of Chile",
-    description:
-      "Led by Bernardo O'Higgins and José de San Martín, Chilean forces secured independence from Spain with the victory at the Battle of Maipú on April 5, 1818.",
-    position: [-33.4869, -70.7678], // Santiago, Chile
-    category: "War",
+    title: "Killington Ski Resort, Killington, VT 05751",
+    description: "⛷️ Ski on challenging terrains and relax in comfortable lodges at Killington Ski Resort in Killington, VT - an exhilarating winter escape! 🏔️❄️",
+    position: [43.6772, -72.7794],
+    category: "Entertainment",
   },
   {
     id: 55,
-    title: "October Revolution",
-    description:
-      "The October Revolution, also known as the Bolshevik Revolution, overthrew the Russian Provisional Government and gave rise to the Soviet Union in 1917.",
-    position: [59.9343, 30.3351], // Saint Petersburg, Russia
-    category: "Politics",
+    title: "Taos Ski Valley, Taos, NM 87525",
+    description: "🏂 Experience world-class snowboarding and adobe-style lodges at Taos Ski Valley in Taos, NM - a unique blend of adventure and culture! 🏔️❄️",
+    position: [36.5965, -105.4487],
+    category: "Entertainment",
   },
   {
     id: 56,
-    title: "The Battle of Stalingrad",
-    description:
-      "One of the deadliest battles in human history, the Battle of Stalingrad from August 23, 1942, to February 2, 1943, was a turning point in World War II, marking the decline of the Axis powers.",
-    position: [48.708, 44.5133], // Stalingrad (now Volgograd), Russia
-    category: "War",
+    title: "Gyeongbokgung Palace, Seoul, South Korea",
+    description: "🏰 Explore the historic Gyeongbokgung Palace in Seoul, South Korea - a symbol of Korean royalty and architectural beauty! 🇰🇷",
+    position: [37.5775, 126.9769],
+    category: "International",
   },
   {
     id: 57,
-    title: "The Flight of Yuri Gagarin",
-    description:
-      "Yuri Gagarin became the first human to journey into outer space and orbit the Earth on April 12, 1961, signifying a significant achievement for the Soviet space program.",
-    position: [55.7558, 37.6173], // Moscow, Russia
-    category: "Science",
+    title: "Ha Long Bay, Quang Ninh Province, Vietnam",
+    description: "⛵ Cruise through the breathtaking limestone karsts of Ha Long Bay in Vietnam - a UNESCO World Heritage Site and natural wonder! 🇻🇳",
+    position: [20.9101, 107.1839],
+    category: "International",
   },
   {
     id: 58,
-    title: "The Fall of the Soviet Union",
-    description:
-      "The dissolution of the Soviet Union took place on December 26, 1991, marking the end of the Cold War and resulting in the independence of 15 republics.",
-    position: [55.7558, 37.6176], // Moscow, Russia
-    category: "Politics",
+    title: "Fushimi Inari Shrine, Kyoto, Japan",
+    description: "⛩️ Wander through the iconic torii gates of Fushimi Inari Shrine in Kyoto, Japan - a sacred destination and cultural landmark! 🇯🇵",
+    position: [34.9671, 135.7727],
+    category: "International",
   },
   {
     id: 59,
-    title: "First War of Indian Independence",
-    description:
-      "The First War of Indian Independence, also known as the Sepoy Mutiny, began in 1857 as a rebellion against the British East India Company's rule.",
-    position: [28.7041, 77.1025], // New Delhi, India
-    category: "War",
+    title: "The Great Wall of China, Huairou, China",
+    description: "🏯 Experience the grandeur of The Great Wall of China in Huairou, China - an ancient marvel and testament to human engineering! 🇨🇳",
+    position: [40.4319, 116.5704],
+    category: "International",
   },
   {
     id: 60,
-    title: "Jallianwala Bagh Massacre",
-    description:
-      "The Jallianwala Bagh Massacre of 1919 involved British troops firing on a large crowd of unarmed Indians in Amritsar, Punjab, significantly escalating the Indian independence movement.",
-    position: [31.62, 74.8765], // Amritsar, India
-    category: "Politics",
+    title: "Myeongdong Street Food, Seoul, South Korea",
+    description: "🍜 Indulge in a culinary adventure at Myeongdong Street Food in Seoul, South Korea - a vibrant market offering delicious Korean street eats! 🇰🇷🍢",
+    position: [37.5665, 126.9850],
+    category: "International",
   },
   {
     id: 61,
-    title: "Dandi March",
-    description:
-      "The Dandi March, or Salt Satyagraha, was a nonviolent protest led by Mahatma Gandhi in 1930 against the British salt tax in colonial India.",
-    position: [20.9517, 72.9324], // Dandi, India
-    category: "Politics",
+    title: "Hoi An Ancient Town, Quang Nam Province, Vietnam",
+    description: "🏰 Step back in time at Hoi An Ancient Town in Vietnam - a charming destination with well-preserved architecture and cultural richness! 🇻🇳",
+    position: [15.8801, 108.3380],
+    category: "International",
   },
   {
     id: 62,
-    title: "Indian Independence Act 1947",
-    description:
-      "The Indian Independence Act was passed by the British Parliament, which partitioned British India into two new independent dominions of India and Pakistan.",
-    position: [28.6143, 77.1994], // New Delhi, India
-    category: "Politics",
+    title: "Tokyo Disneyland, Tokyo, Japan",
+    description: "🎢 Embark on a magical journey at Tokyo Disneyland in Japan - a world of fantasy, enchantment, and beloved characters! 🇯🇵✨",
+    position: [35.6329, 139.8808],
+    category: "International",
   },
   {
     id: 63,
-    title: "India's First Satellite, Aryabhata",
-    description:
-      "India launched its first satellite, Aryabhata, in 1975, marking a milestone in its space program.",
-    position: [13.0621, 77.4748], // Bangalore, India
-    category: "Science",
+    title: "The Bund, Shanghai, China",
+    description: "🌆 Marvel at the skyline along The Bund in Shanghai, China - a waterfront area showcasing a blend of historic and modern architecture! 🇨🇳",
+    position: [31.2354, 121.4907],
+    category: "International",
   },
   {
     id: 64,
-    title: "Foundation of Saint Petersburg",
-    description:
-      "Tsar Peter the Great founded the city of Saint Petersburg in 1703, which later became the capital of the Russian Empire for more than two centuries.",
-    position: [59.9343, 30.3351], // Saint Petersburg, Russia
-    category: "Politics",
+    title: "Busan Gamcheon Culture Village, Busan, South Korea",
+    description: "🏡 Immerse yourself in the colorful houses and artistic charm of Busan Gamcheon Culture Village in South Korea - a vibrant hillside community! 🇰🇷",
+    position: [35.0989, 129.0367],
+    category: "International",
   },
   {
     id: 65,
-    title: "Treaty of Kuchuk-Kainarji",
-    description:
-      "The Treaty of Kuchuk-Kainarji in 1774 concluded the Russo-Turkish War (1768–1774), marking the rise of Russia as a major European power.",
-    position: [45.3333, 36.4539], // Near Kuchuk-Kainarji, Crimea
-    category: "Politics",
+    title: "Sapa Terraces, Lao Cai Province, Vietnam",
+    description: "🌾 Trek through the stunning terraced landscapes of Sapa in Vietnam - a scenic region known for its ethnic diversity and breathtaking views! 🇻🇳",
+    position: [22.3368, 103.8447],
+    category: "International",
   },
   {
     id: 66,
-    title: "Emancipation of the Serfs",
-    description:
-      "In 1861, Tsar Alexander II issued the Emancipation Reform, freeing millions of serfs and profoundly changing Russian society.",
-    position: [55.7558, 37.6173], // Moscow, Russia
-    category: "Politics",
+    title: "Arashiyama Bamboo Grove, Kyoto, Japan",
+    description: "🎋 Stroll through the enchanting Arashiyama Bamboo Grove in Kyoto, Japan - a serene natural wonder and cultural treasure! 🇯🇵",
+    position: [35.0154, 135.6739],
+    category: "International",
   },
   {
     id: 67,
-    title: "Battleship Potemkin Uprising",
-    description:
-      "The crew of the Russian battleship Potemkin rebelled in 1905, a key event in the prelude to the Russian Revolution.",
-    position: [44.6167, 33.5254], // Black Sea, near Odessa
-    category: "War",
+    title: "Zhangjiajie National Forest Park, Wulingyuan, China",
+    description: "🌳 Discover the surreal beauty of Zhangjiajie National Forest Park in China - an otherworldly landscape that inspired the 'Avatar' movie! 🇨🇳",
+    position: [29.3548, 110.4145],
+    category: "International",
   },
   {
     id: 68,
-    title: "Sputnik Launch",
-    description:
-      "The Soviet Union launched Sputnik 1, the world's first artificial satellite, in 1957, initiating the space age and the space race.",
-    position: [45.9646, 63.3052], // Baikonur Cosmodrome, Kazakhstan
-    category: "Science",
+    title: "Insadong, Seoul, South Korea",
+    description: "🛍️ Shop for traditional crafts and savor authentic Korean tea in Insadong, Seoul - a cultural hub blending old and new! 🇰🇷☕",
+    position: [37.5730, 126.9854],
+    category: "International",
   },
   {
     id: 69,
-    title: "The St. Petersburg Academy of Sciences",
-    description:
-      "Founded by Peter the Great in 1724, the St. Petersburg Academy of Sciences was one of the first scientific institutions in Russia, fostering the development of science and learning.",
-    position: [59.9398, 30.3146], // Saint Petersburg, Russia
-    category: "Science",
+    title: "Phong Nha-Ke Bang National Park, Quang Binh Province, Vietnam",
+    description: "🏞️ Explore the stunning caves and karst landscapes of Phong Nha-Ke Bang National Park in Vietnam - a UNESCO World Heritage Site! 🇻🇳",
+    position: [17.5902, 106.2830],
+    category: "International",
   },
   {
     id: 70,
-    title: "Mendeleev's Periodic Table",
-    description:
-      "Dmitri Mendeleev created the Periodic Table of Elements in 1869, revolutionizing chemistry with his periodic law for organizing the elements.",
-    position: [55.7517, 37.6178], // Moscow, Russia
-    category: "Science",
+    title: "Tokyo Skytree, Tokyo, Japan",
+    description: "🗼 Soar to new heights at Tokyo Skytree in Japan - the tallest structure in Tokyo offering panoramic views of the city! 🇯🇵🌆",
+    position: [35.7101, 139.8107],
+    category: "International",
   },
   {
     id: 71,
-    title: "Opening of the Tretyakov Gallery",
-    description:
-      "The Tretyakov Gallery, opened in 1856, houses one of the largest collections of Russian fine art in the world.",
-    position: [55.7415, 37.6208], // Moscow, Russia
-    category: "Art",
+    title: "West Lake, Hangzhou, China",
+    description: "🌸 Relax by the picturesque West Lake in Hangzhou, China - a scenic destination known for its natural beauty and cultural significance! 🇨🇳",
+    position: [30.2466, 120.1439],
+    category: "International",
   },
   {
     id: 72,
-    title: "First Russian State Ballet",
-    description:
-      "The Mariinsky Ballet, founded in the 1740s in St. Petersburg, is one of the world's leading ballet companies, greatly contributing to the art of ballet.",
-    position: [59.9251, 30.2956], // Saint Petersburg, Russia
-    category: "Art",
+    title: "Jeju Loveland, Jeju Island, South Korea",
+    description: "💏 Embark on an adventurous visit to Jeju Loveland on Jeju Island, South Korea - an art park featuring erotic sculptures and exhibits! 🇰🇷😘",
+    position: [33.4977, 126.5292],
+    category: "International",
   },
   {
     id: 73,
-    title: "Pavlov's Classical Conditioning",
-    description:
-      "Ivan Pavlov's work on classical conditioning began in the 1890s, which became one of the most famous studies in behavioral science.",
-    position: [59.9419, 30.2982], // Saint Petersburg, Russia
-    category: "Science",
+    title: "Mui Ne Sand Dunes, Binh Thuan Province, Vietnam",
+    description: "🏜️ Experience the mesmerizing landscapes of Mui Ne Sand Dunes in Vietnam - a unique desert-like destination with red and white sand hills! 🇻🇳",
+    position: [10.9695, 108.2847],
+    category: "International",
   },
   {
     id: 74,
-    title: "Isaac Newton's Principia Mathematica",
-    description:
-      "Sir Isaac Newton published 'Philosophiæ Naturalis Principia Mathematica' in 1687, laying the groundwork for classical mechanics.",
-    position: [52.2053, 0.1218], // Cambridge, UK
-    category: "Science",
+    title: "Meiji Shrine, Tokyo, Japan",
+    description: "⛩️ Find tranquility at Meiji Shrine in Tokyo, Japan - a Shinto shrine surrounded by lush forest, offering a peaceful escape in the heart of the city! 🇯🇵🌳",
+    position: [35.6764, 139.6993],
+    category: "International",
   },
   {
     id: 75,
-    title: "Establishment of the Royal Society",
-    description:
-      "The Royal Society, a fellowship of eminent scientists, was granted a royal charter by King Charles II in 1660.",
-    position: [51.5058, -0.1374], // London, UK
-    category: "Science",
+    title: "Yellow Mountain (Huangshan), Anhui Province, China",
+    description: "🏞️ Marvel at the breathtaking scenery of Yellow Mountain (Huangshan) in China - a UNESCO World Heritage Site known for its iconic granite peaks and ancient pines! 🇨🇳",
+    position: [30.1348, 118.1601],
+    category: "International",
   },
   {
     id: 76,
-    title: "The First Exhibition of the Royal Academy",
-    description:
-      "The Royal Academy of Arts held its first exhibition in 1769, promoting the arts of design in Britain through education and exhibitions.",
-    position: [51.5091, -0.1393], // London, UK
-    category: "Art",
+    title: "Bukhansan National Park, Seoul, South Korea",
+    description: "🏞️ Hike through the scenic trails of Bukhansan National Park in Seoul, South Korea - a nature escape offering panoramic views of the city! 🇰🇷🌲",
+    position: [37.6580, 126.9810],
+    category: "International",
   },
   {
     id: 77,
-    title: "Charles Darwin's On the Origin of Species",
-    description:
-      "Charles Darwin's book, published in 1859, introduced the scientific theory of evolution by natural selection.",
-    position: [51.5118, -0.1445], // London, UK
-    category: "Science",
+    title: "Cu Chi Tunnels, Ho Chi Minh City, Vietnam",
+    description: "🕳️ Discover the historic Cu Chi Tunnels near Ho Chi Minh City, Vietnam - an underground network used during the Vietnam War! 🇻🇳",
+    position: [11.0756, 106.5230],
+    category: "International",
   },
   {
     id: 78,
-    title: "The Tate Gallery Opening",
-    description:
-      "The Tate Gallery, now known as Tate Britain, opened in 1897, and today it is one of the most significant art galleries in the UK.",
-    position: [51.4911, -0.1278], // London, UK
-    category: "Art",
+    title: "Odaiba, Tokyo, Japan",
+    description: "🏙️ Explore the futuristic entertainment hub of Odaiba in Tokyo, Japan - featuring shopping malls, digital art museums, and a life-sized Gundam statue! 🇯🇵🤖",
+    position: [35.6190, 139.7798],
+    category: "International",
   },
+  {
+    id: 79,
+    title: "Hangzhou Tea Plantations, Hangzhou, China",
+    description: "🍵 Immerse yourself in the lush greenery of Hangzhou Tea Plantations in China - a scenic destination renowned for its Longjing tea production! 🇨🇳🌿",
+    position: [30.2861, 120.1439],
+    category: "International",
+  },
+  {
+    id: 80,
+    title: "Namsan Seoul Tower, Seoul, South Korea",
+    description: "🗼 Enjoy panoramic views of Seoul from Namsan Seoul Tower in South Korea - an iconic landmark and romantic spot in the city! 🇰🇷🌆",
+    position: [37.5515, 126.9883],
+    category: "International",
+  },
+  {
+    id: 81,
+    title: "Halong Bay Floating Fishing Village, Quang Ninh Province, Vietnam",
+    description: "🚤 Cruise through the charming floating fishing villages of Halong Bay in Vietnam - a unique and tranquil experience! 🇻🇳",
+    position: [20.9286, 107.1935],
+    category: "International",
+  },
+  {
+    id: 82,
+    title: "Osaka Castle, Osaka, Japan",
+    description: "🏯 Step into history at Osaka Castle in Osaka, Japan - a majestic fortress surrounded by beautiful cherry blossoms during springtime! 🇯🇵🌸",
+    position: [34.6873, 135.5262],
+    category: "International",
+  },
+  {
+    id: 83,
+    title: "Terracotta Army, Xi'an, China",
+    description: "🗿 Marvel at the ancient Terracotta Army in Xi'an, China - an archaeological wonder featuring thousands of life-sized clay soldiers! 🇨🇳",
+    position: [34.3840, 109.2793],
+    category: "International",
+  },
+  {
+    id: 84,
+    title: "Eiffel Tower, Paris, France",
+    description: "🗼 Soak in the iconic beauty of the Eiffel Tower in Paris, France - a symbol of romance and architectural elegance! 🇫🇷",
+    position: [48.8588, 2.2944],
+    category: "International",
+  },
+  {
+    id: 85,
+    title: "La Sagrada Familia, Barcelona, Spain",
+    description: "⛪ Marvel at the masterpiece of Antoni Gaudí - La Sagrada Familia in Barcelona, Spain, a stunning basilica with unique architecture! 🇪🇸",
+    position: [41.4036, 2.1744],
+    category: "International",
+  },
+  {
+    id: 86,
+    title: "Stonehenge, Amesbury, U.K.",
+    description: "🗿 Explore the mysterious Stonehenge in Amesbury, U.K. - an ancient and enigmatic prehistoric monument! 🇬🇧",
+    position: [51.1789, -1.8262],
+    category: "International",
+  },
+  {
+    id: 87,
+    title: "Louvre Museum, Paris, France",
+    description: "🏛️ Dive into art and history at the Louvre Museum in Paris, France - home to thousands of masterpieces, including the Mona Lisa! 🇫🇷🎨",
+    position: [48.8606, 2.3376],
+    category: "International",
+  },
+  {
+    id: 88,
+    title: "Alhambra, Granada, Spain",
+    description: "🕌 Immerse yourself in the Moorish architecture and gardens of Alhambra in Granada, Spain - a UNESCO World Heritage Site! 🇪🇸",
+    position: [37.1773, -3.5986],
+    category: "International",
+  },
+  {
+    id: 89,
+    title: "Edinburgh Castle, Edinburgh, U.K.",
+    description: "🏰 Explore the historic Edinburgh Castle in Scotland, U.K. - a fortress with panoramic views and centuries of intriguing tales! 🇬🇧",
+    position: [55.9486, -3.1999],
+    category: "International",
+  },
+  {
+    id: 90,
+    title: "Mont Saint-Michel, Normandy, France",
+    description: "⛪ Witness the magical island commune of Mont Saint-Michel in Normandy, France - an architectural marvel surrounded by the sea! 🇫🇷",
+    position: [48.6367, -1.5113],
+    category: "International",
+  },
+  {
+    id: 91,
+    title: "Park Güell, Barcelona, Spain",
+    description: "🌳 Experience the whimsical world of Park Güell in Barcelona, Spain - a public park filled with colorful mosaics and playful architecture! 🇪🇸",
+    position: [41.4145, 2.1527],
+    category: "International",
+  },
+  {
+    id: 92,
+    title: "Buckingham Palace, London, U.K.",
+    description: "🏰 Witness the grandeur of Buckingham Palace in London, U.K. - the official residence of the British monarch and a symbol of royalty! 🇬🇧",
+    position: [51.5014, -0.1419],
+    category: "International",
+  },
+  {
+    id: 93,
+    title: "Versailles Palace, Versailles, France",
+    description: "🏰 Step into opulence at Versailles Palace near Paris, France - a symbol of absolute monarchy and French grandeur! 🇫🇷",
+    position: [48.8049, 2.1204],
+    category: "International",
+  },
+  {
+    id: 94,
+    title: "La Rambla, Barcelona, Spain",
+    description: "🚶‍♀️ Stroll down the lively promenade of La Rambla in Barcelona, Spain - a bustling street filled with shops, cafes, and street performers! 🇪🇸",
+    position: [41.3803, 2.1734],
+    category: "International",
+  },
+  {
+    id: 95,
+    title: "Tower of London, London, U.K.",
+    description: "🏰 Uncover centuries of history at the Tower of London in the U.K. - a fortress with a dark past and the Crown Jewels on display! 🇬🇧",
+    position: [51.5081, -0.0759],
+    category: "International",
+  },
+  {
+    id: 96,
+    title: "Provence Lavender Fields, Provence, France",
+    description: "🌼 Immerse yourself in the vibrant colors of Provence Lavender Fields in France - a picturesque landscape during the blooming season! 🇫🇷",
+    position: [43.9336, 5.6073],
+    category: "International",
+  },
+  {
+    id: 97,
+    title: "La Pedrera (Casa Milà), Barcelona, Spain",
+    description: "🏠 Admire the unconventional architecture of La Pedrera (Casa Milà) in Barcelona, Spain - a masterpiece by Antoni Gaudí! 🇪🇸",
+    position: [41.3954, 2.1612],
+    category: "International",
+  },
+  {
+    id: 98,
+    title: "Windsor Castle, Windsor, U.K.",
+    description: "🏰 Visit the oldest and largest inhabited castle in the world - Windsor Castle in Windsor, U.K. - a royal residence with a rich history! 🇬🇧",
+    position: [51.4839, -0.6044],
+    category: "International",
+  },
+  {
+    id: 99,
+    title: "Palace of the Popes, Avignon, France",
+    description: "🏰 Step into the historic Palace of the Popes in Avignon, France - a medieval palace that served as the residence for seven popes! 🇫🇷",
+    position: [43.9506, 4.8072],
+    category: "International",
+  },
+  {
+    id: 100,
+    title: "Plaza Mayor, Madrid, Spain",
+    description: "🏛️ Immerse yourself in the grandeur of Plaza Mayor in Madrid, Spain - a historic square surrounded by vibrant architecture and lively atmosphere! 🇪🇸",
+    position: [40.4154, -3.7074],
+    category: "International",
+  },
+  {
+    id: 101,
+    title: "The Roman Baths, Bath, U.K.",
+    description: "🏛️ Explore the ancient Roman Baths in the city of Bath, U.K. - a well-preserved complex with historical significance and stunning architecture! 🇬🇧",
+    position: [51.3813, -2.3590],
+    category: "International",
+  },
+  {
+    id: 102,
+    title: "Montparnasse Tower, Paris, France",
+    description: "🏙️ Enjoy panoramic views of Paris from Montparnasse Tower in France - an observation deck offering breathtaking vistas of the cityscape! 🇫🇷🌆",
+    position: [48.8418, 2.3216],
+    category: "International",
+  },
+  {
+    id: 103,
+    title: "Sagrada Familia, Barcelona, Spain",
+    description: "⛪ Marvel at the ongoing construction of Sagrada Familia in Barcelona, Spain - Antoni Gaudí's unfinished masterpiece and a UNESCO World Heritage Site! 🇪🇸",
+    position: [41.4036, 2.1744],
+    category: "International",
+  },
+  {
+    id: 104,
+    title: "Great Barrier Reef, Queensland, Australia",
+    description: "🐠 Dive into the world's largest coral reef system, the Great Barrier Reef in Australia - a marine wonder teeming with biodiversity! 🇦🇺",
+    position: [-18.2871, 147.6992],
+    category: "International",
+  },
+  {
+    id: 105,
+    title: "Machu Picchu, Cusco Region, Peru",
+    description: "🏞️ Embark on a journey to Machu Picchu in Peru - an ancient Incan citadel nestled in the Andes, surrounded by breathtaking landscapes! 🇵🇪",
+    position: [-13.1631, -72.5450],
+    category: "International",
+  },
+  {
+    id: 106,
+    title: "Petra, Ma'an Governorate, Jordan",
+    description: "🏛️ Discover the rose-red city of Petra in Jordan - an archaeological marvel with intricate rock-cut architecture, including the iconic Al-Khazneh! 🇯🇴",
+    position: [30.3285, 35.4444],
+    category: "International",
+  },
+  {
+    id: 107,
+    title: "Grand Canyon, Arizona, USA",
+    description: "🏜️ Marvel at the vastness of the Grand Canyon in the USA - a geological masterpiece with stunning rock formations and breathtaking canyon views! 🇺🇸",
+    position: [36.1070, -112.1130],
+    category: "International",
+  },
+  {
+    id: 108,
+    title: "Victoria Falls, Livingstone, Zambia/Zimbabwe",
+    description: "🌊 Witness the awe-inspiring Victoria Falls on the border of Zambia and Zimbabwe - one of the world's largest and most majestic waterfalls! 🇿🇲🇿🇼",
+    position: [-17.9244, 25.8567],
+    category: "International",
+  },
+  {
+    id: 109,
+    title: "Santorini Sunset, Oia, Greece",
+    description: "🌅 Experience the enchanting sunset in Oia, Santorini, Greece - a picturesque island offering breathtaking views over the Aegean Sea! 🇬🇷",
+    position: [36.4614, 25.3760],
+    category: "International",
+  },
+  {
+    id: 110,
+    title: "Bora Bora Overwater Bungalows, French Polynesia",
+    description: "🏝️ Indulge in luxury at Bora Bora's overwater bungalows in French Polynesia - a tropical paradise with crystal-clear waters and stunning coral reefs! 🇵🇫",
+    position: [-16.5000, -151.7500],
+    category: "International",
+  },
+  {
+    id: 111,
+    title: "Northern Lights, Lapland, Finland",
+    description: "🌌 Witness the magical Northern Lights in Lapland, Finland - a celestial display of vibrant colors dancing across the Arctic sky! 🇫🇮",
+    position: [67.9222, 26.5046],
+    category: "International",
+  },
+  {
+    id: 112,
+    title: "Amazon Rainforest, Brazil/Peru",
+    description: "🌳 Explore the biodiversity of the Amazon Rainforest in Brazil and Peru - the world's largest tropical rainforest, home to diverse flora and fauna! 🇧🇷🇵🇪",
+    position: [-3.4653, -62.2159],
+    category: "International",
+  },
+  {
+    id: 113,
+    title: "Dubai Burj Khalifa, Dubai, UAE",
+    description: "🏙️ Soar to new heights at the Burj Khalifa in Dubai, UAE - the world's tallest building, offering panoramic views of the city and beyond! 🇦🇪",
+    position: [25.2769, 55.2962],
+    category: "International",
+  },
+  {
+    id: 114,
+    title: "Serengeti Safari, Tanzania",
+    description: "🦓 Embark on a Serengeti Safari in Tanzania - witness the Great Migration and experience the untamed beauty of African wildlife in their natural habitat! 🇹🇿",
+    position: [-2.1540, 34.6857],
+    category: "International",
+  },
+  {
+    id: 115,
+    title: "Neuschwanstein Castle, Bavaria, Germany",
+    description: "🏰 Step into a fairy tale at Neuschwanstein Castle in Bavaria, Germany - an enchanting palace with stunning architecture and picturesque surroundings! 🇩🇪",
+    position: [47.5576, 10.7498],
+    category: "International",
+  },
+  {
+    id: 116,
+    title: "Angkor Wat, Siem Reap, Cambodia",
+    description: "🕌 Discover the majestic Angkor Wat in Siem Reap, Cambodia - the largest religious monument in the world, surrounded by ancient ruins and temples! 🇰🇭",
+    position: [13.4125, 103.8660],
+    category: "International",
+  },
+  {
+    id: 117,
+    title: "Taj Mahal, Agra, India",
+    description: "🕌 Marvel at the timeless beauty of the Taj Mahal in Agra, India - a symbol of eternal love and one of the most iconic landmarks in the world! 🇮🇳",
+    position: [27.1750, 78.0419],
+    category: "International",
+  },
+  {
+    id: 118,
+    title: "Iguazu Falls, Misiones Province, Argentina/Brazil",
+    description: "🌊 Experience the power of Iguazu Falls on the border of Argentina and Brazil - a breathtaking series of waterfalls surrounded by lush rainforest! 🇦🇷🇧🇷",
+    position: [-25.6953, -54.4368],
+    category: "International",
+  },
+  {
+    id: 119,
+    title: "The Pyramids of Giza, Cairo, Egypt",
+    description: "🏰 Explore the ancient wonders of the Pyramids of Giza in Cairo, Egypt - a testament to the grandeur of the ancient Egyptian civilization! 🇪🇬",
+    position: [29.9792, 31.1342],
+    category: "International",
+  },
+  {
+    id: 120,
+    title: "Banff National Park, Alberta, Canada",
+    description: "🏞️ Immerse yourself in the stunning landscapes of Banff National Park in Alberta, Canada - a haven for outdoor enthusiasts with majestic mountains and turquoise lakes! 🇨🇦",
+    position: [51.4968, -115.9281],
+    category: "International",
+  },
+  {
+    id: 121,
+    title: "Acropolis, Athens, Greece",
+    description: "🏛️ Climb to the Acropolis in Athens, Greece - an ancient citadel perched on a rocky outcrop, featuring iconic structures like the Parthenon! 🇬🇷",
+    position: [37.9715, 23.7265],
+    category: "International",
+  },
+  {
+    id: 122,
+    title: "Yellowstone National Park, Wyoming, USA",
+    description: "🏞️ Explore the geothermal wonders of Yellowstone National Park in the USA - home to geysers, hot springs, and diverse wildlife in a pristine natural setting! 🇺🇸",
+    position: [44.4279, -110.5885],
+    category: "International",
+  },
+  {
+    id: 123,
+    title: "The Vatican City, Vatican City",
+    description: "⛪ Visit the smallest independent state in the world - The Vatican City, a city-state surrounded by Rome, Italy, known for St. Peter's Basilica and the Sistine Chapel! 🇻🇦",
+    position: [41.9022, 12.4538],
+    category: "International",
+  },
+
+  {
+    id: 124,
+    title: "Antelope Canyon, Page, Arizona",
+    description: "🏜️ Explore the mesmerizing slot canyons of Antelope Canyon in Page, Arizona - a surreal landscape of swirling sandstone formations! 🇺🇸",
+    position: [36.8619, -111.3744],
+    category: "Road Trip",
+  },
+  {
+    id: 125,
+    title: "Blue Ridge Parkway, North Carolina/Virginia",
+    description: "🛣️ Drive along the scenic Blue Ridge Parkway, winding through the Appalachian Highlands - a road trip offering breathtaking views and outdoor adventures! 🇺🇸",
+    position: [35.7815, -82.3882],
+    category: "Road Trip",
+  },
+  {
+    id: 126,
+    title: "Denali National Park, Alaska",
+    description: "🏞️ Experience the vast wilderness of Denali National Park in Alaska - home to North America's highest peak, Mount McKinley! 🇺🇸",
+    position: [63.1148, -151.1926],
+    category: "Road Trip",
+  },
+  {
+    id: 127,
+    title: "Great Smoky Mountains National Park, Tennessee/North Carolina",
+    description: "🏞️ Discover the biodiversity and stunning landscapes of Great Smoky Mountains National Park - a haven for hikers, wildlife enthusiasts, and nature lovers! 🇺🇸",
+    position: [35.6539, -83.5070],
+    category: "Road Trip",
+  },
+  {
+    id: 128,
+    title: "Monument Valley, Utah/Arizona",
+    description: "🏞️ Marvel at the iconic red mesas and buttes of Monument Valley on the Utah-Arizona border - a cinematic landscape featured in many Western films! 🇺🇸",
+    position: [36.9982, -110.0985],
+    category: "Road Trip",
+  },
+  {
+    id: 129,
+    title: "Napa Valley Wine Country, California",
+    description: "🍇 Indulge in a wine-tasting adventure in Napa Valley, California - renowned for its vineyards, wineries, and picturesque countryside! 🇺🇸",
+    position: [38.5025, -122.2654],
+    category: "Road Trip",
+  },
+  {
+    id: 130,
+    title: "Horseshoe Bend, Page, Arizona",
+    description: "🌊 Witness the stunning Horseshoe Bend along the Colorado River near Page, Arizona - a dramatic horseshoe-shaped meander with breathtaking canyon views! 🇺🇸",
+    position: [36.8780, -111.5120],
+    category: "Road Trip",
+  },
+  {
+    id: 131,
+    title: "Grand Tetons National Park, Wyoming",
+    description: "🏞️ Explore the majestic peaks and pristine lakes of Grand Teton National Park in Wyoming - an outdoor paradise for adventure seekers! 🇺🇸",
+    position: [43.7904, -110.6818],
+    category: "Road Trip",
+  },
+  {
+    id: 132,
+    title: "New Orleans French Quarter, Louisiana",
+    description: "🎺 Immerse yourself in the vibrant culture of the French Quarter in New Orleans, Louisiana - known for its lively music, historic architecture, and delicious cuisine! 🇺🇸",
+    position: [29.9584, -90.0648],
+    category: "Road Trip",
+  },
+  {
+    id: 133,
+    title: "Zion National Park, Utah",
+    description: "🏞️ Embark on an adventure in Zion National Park, Utah - a red rock wonderland with towering sandstone cliffs and picturesque canyons! 🇺🇸",
+    position: [37.2982, -113.0263],
+    category: "Road Trip",
+  },
+  {
+    id: 134,
+    title: "Glacier National Park, Montana",
+    description: "🏞️ Discover the pristine beauty of Glacier National Park in Montana - home to glaciers, alpine meadows, and stunning mountain landscapes! 🇺🇸",
+    position: [48.7596, -113.7870],
+    category: "Road Trip",
+  },
+  {
+    id: 135,
+    title: "Savannah Historic District, Georgia",
+    description: "🏰 Stroll through the charming streets of the Savannah Historic District in Georgia - known for its cobblestone squares, historic homes, and southern hospitality! 🇺🇸",
+    position: [32.0787, -81.0902],
+    category: "Road Trip",
+  },
+  {
+    id: 136,
+    title: "Mount Rushmore National Memorial, South Dakota",
+    description: "🏞️ Witness the iconic faces carved into Mount Rushmore in South Dakota - a patriotic monument featuring the likenesses of four U.S. presidents! 🇺🇸",
+    position: [43.8789, -103.4590],
+    category: "Road Trip",
+  },
+  {
+    id: 137,
+    title: "Yellowstone River, Montana/Wyoming",
+    description: "🚣‍♂️ Float along the scenic Yellowstone River, flowing through Montana and Wyoming - an ideal spot for kayaking, fishing, and enjoying the great outdoors! 🇺🇸",
+    position: [45.0945, -110.9646],
+    category: "Road Trip",
+  },
+  {
+    id: 138,
+    title: "Cape Cod National Seashore, Massachusetts",
+    description: "🏖️ Experience the natural beauty of Cape Cod National Seashore in Massachusetts - pristine beaches, dunes, and coastal landscapes along the Atlantic Ocean! 🇺🇸",
+    position: [41.9375, -69.9721],
+    category: "Road Trip",
+  }
+
 ];
 
 export default eventsData;

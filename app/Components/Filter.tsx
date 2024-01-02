@@ -7,8 +7,11 @@ interface Props {
 function Filter({ setSelectedCategory }: Props) {
   const categories = [
     "Dates",
-    "Happenings",
-    "Memories",
+    "Food",
+    "Entertainment",
+    "Desserts",
+    "International",
+    "Road Trip",
     "Other",
   ];
 
