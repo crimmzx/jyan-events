@@ -1,6 +1,6 @@
-import { Event } from "./Components/MapsApp";
+import { HistoricalEvent } from "./Components/MapsApp";
 
-const eventsData: Event[] = [
+const eventsData: HistoricalEvent[] = [
   {
     id: 1,
     title: "152 Alexander St, Princeton, NJ 08540",
